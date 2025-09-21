@@ -91,18 +91,39 @@
             border-bottom: 3px solid #00ffff;
         }
 
-        .hero h1 {
+        .hero-title {
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.7);
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 1.5rem;
             opacity: 0.95;
             max-width: 600px;
             margin: 0 auto;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .glowing-dot {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #00ffff;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            animation: pulse 2s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
         }
 
         /* Сетка часов */
@@ -307,8 +328,18 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-title {
                 font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .glowing-dot {
+                width: 15px;
+                height: 15px;
+                margin-right: 10px;
             }
             
             .watches-grid {
@@ -343,8 +374,10 @@
     <!-- Герой секция -->
     <section class="hero">
         <div>
-            <h1>🕐 WatchCustom</h1>
-            <p>Эксклюзивные часы среди звезд</p>
+            <h1 class="hero-title">
+                <span class="glowing-dot"></span>WatchCustom
+            </h1>
+            <p class="hero-subtitle">Эксклюзивные часы среди звезд</p>
         </div>
     </section>
 
