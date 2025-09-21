@@ -26,29 +26,32 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #0a0a2a, #000000, #0a0a2a);
+            background: linear-gradient(45deg, #001a33, #000, #001a33);
         }
 
         .star {
             position: absolute;
-            background: white;
+            background: #00ffff;
             border-radius: 50%;
-            animation: twinkle 5s infinite;
+            animation: twinkle 3s infinite;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         /* Навигация */
         .navigation {
-            background: rgba(0, 150, 136, 0.95);
+            background: rgba(0, 200, 180, 0.95);
             padding: 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid #00ffff;
+            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.3);
         }
 
         .nav-buttons {
@@ -59,43 +62,47 @@
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid #fff;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid #00ffff;
             color: white;
             padding: 15px 30px;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         .nav-btn:hover,
         .nav-btn.active {
-            background: #fff;
-            color: #00897b;
-            transform: translateY(-2px);
+            background: #00ffff;
+            color: #00695c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
         }
 
         /* Герой секция */
         .hero {
             text-align: center;
             padding: 150px 20px 100px;
-            background: linear-gradient(135deg, rgba(0, 137, 123, 0.8) 0%, rgba(0, 121, 107, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(0, 180, 160, 0.9) 0%, rgba(0, 150, 130, 0.9) 100%);
             color: white;
             position: relative;
+            border-bottom: 3px solid #00ffff;
         }
 
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
         }
 
         .hero p {
             font-size: 1.5rem;
-            opacity: 0.9;
+            opacity: 0.95;
             max-width: 600px;
             margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         }
 
         /* Сетка часов */
@@ -109,18 +116,38 @@
         }
 
         .watch-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 255, 255, 0.95));
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 137, 123, 0.2);
-            border: 3px solid #00897b;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0, 200, 180, 0.25);
+            border: 3px solid #00bcd4;
+            position: relative;
+            overflow: hidden;
         }
 
         .watch-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 137, 123, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 200, 180, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .watch-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #00bcd4, #00ffff, #00bcd4);
+            z-index: -1;
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .watch-card:hover::before {
+            opacity: 0.3;
         }
 
         /* Слайдер фото */
@@ -131,6 +158,8 @@
             margin-bottom: 20px;
             border-radius: 15px;
             overflow: hidden;
+            border: 2px solid #00bcd4;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
         }
 
         .slider {
@@ -159,32 +188,37 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid #00ffff;
         }
 
         .slider-dot.active {
-            background: #fff;
+            background: #00ffff;
+            box-shadow: 0 0 10px #00ffff;
         }
 
         .slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(0, 188, 212, 0.9);
             border: none;
             width: 40px;
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 20px;
-            color: #00897b;
+            color: white;
             transition: all 0.3s ease;
+            border: 2px solid #00ffff;
         }
 
         .slider-arrow:hover {
-            background: #fff;
+            background: #00ffff;
+            color: #00695c;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
         }
 
         .slider-arrow.prev {
@@ -196,48 +230,54 @@
         }
 
         .watch-brand {
-            background: linear-gradient(135deg, #00897b, #00796b);
+            background: linear-gradient(135deg, #00bcd4, #00897b);
             color: white;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 25px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
         }
 
         .watch-name {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
             font-weight: bold;
             color: #00897b;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .watch-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #e91e63;
             font-weight: bold;
-            margin: 15px 0;
+            margin: 20px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .watch-description {
-            color: #666;
+            color: #555;
             line-height: 1.6;
             margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
         /* Контакты */
         .contact-section {
             text-align: center;
             padding: 100px 20px;
-            background: linear-gradient(135deg, rgba(0, 121, 107, 0.8) 0%, rgba(0, 105, 92, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(0, 150, 130, 0.95) 0%, rgba(0, 120, 110, 0.95) 100%);
             color: white;
             position: relative;
+            border-top: 3px solid #00ffff;
         }
 
         .contact-button {
-            background: #fff;
-            color: #00897b;
+            background: linear-gradient(135deg, #00ffff, #00bcd4);
+            color: #00695c;
             padding: 20px 40px;
             border: none;
             border-radius: 30px;
@@ -247,11 +287,13 @@
             margin-top: 30px;
             transition: all 0.3s ease;
             font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
         }
 
         .contact-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.4);
         }
 
         /* Секции брендов */
@@ -426,12 +468,13 @@
                 const star = document.createElement('div');
                 star.className = 'star';
                 
-                const size = Math.random() * 3;
+                const size = Math.random() * 3 + 1;
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
                 
                 stars.appendChild(star);
             }
