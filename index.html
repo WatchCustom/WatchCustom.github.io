@@ -592,4 +592,28 @@
             document.querySelectorAll('.brand-section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(brand).class
+            document.getElementById(brand).classList.add('active');
+
+            // Если выбраны отдельные бренды, копируем соответствующие карточки
+            if (brand === 'seiko' || brand === 'gshock') {
+                const targetSection = document.getElementById(brand);
+                const watchesGrid = targetSection.querySelector('.watches-grid');
+                watchesGrid.innerHTML = '';
+
+                document.querySelectorAll(`.watch-card[data-brand="${brand}"]`).forEach(card => {
+                    watchesGrid.appendChild(card.cloneNode(true));
+                });
+
+                // Реинициализируем слайдеры после копирования
+                setTimeout(initSliders, 100);
+            }
+        }
+
+        // Запуск при загрузке
+        document.addEventListener('DOMContentLoaded', () {
+            createStars();
+            initSliders();
+        });
+    </script>
+</body>
+</html>
