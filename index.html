@@ -41,34 +41,54 @@
             50% { opacity: 1; }
         }
 
-        /* Параллакс секции */
-        .parallax-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+        /* Навигация */
+        .navigation {
+            background: rgba(0, 150, 136, 0.95);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #fff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            background: #fff;
+            color: #00897b;
+            transform: translateY(-2px);
+        }
+
+        /* Герой секция */
         .hero {
             text-align: center;
-            padding: 100px 20px;
+            padding: 150px 20px 100px;
+            background: linear-gradient(135deg, rgba(0, 137, 123, 0.8) 0%, rgba(0, 121, 107, 0.8) 100%);
+            color: white;
+            position: relative;
         }
 
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
-            50% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -83,86 +103,125 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .watch-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .watch-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ffd700, #ff6b6b);
-            z-index: -1;
-            border-radius: 22px;
-            animation: borderGlow 3s linear infinite;
-            background-size: 400%;
-        }
-
-        @keyframes borderGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            box-shadow: 0 10px 30px rgba(0, 137, 123, 0.2);
+            border: 3px solid #00897b;
         }
 
         .watch-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 137, 123, 0.3);
         }
 
-        .watch-image {
+        /* Слайдер фото */
+        .slider-container {
+            position: relative;
             width: 100%;
             height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
             margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
-        .watch-card:hover .watch-image {
-            transform: scale(1.05);
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: #fff;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: #00897b;
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: #fff;
+        }
+
+        .slider-arrow.prev {
+            left: 10px;
+        }
+
+        .slider-arrow.next {
+            right: 10px;
         }
 
         .watch-brand {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, #00897b, #00796b);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
             display: inline-block;
             margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .watch-name {
             font-size: 1.6rem;
             margin-bottom: 10px;
             font-weight: bold;
+            color: #00897b;
         }
 
         .watch-price {
             font-size: 2rem;
-            color: #ffd700;
+            color: #e91e63;
             font-weight: bold;
             margin: 15px 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .watch-description {
-            opacity: 0.9;
+            color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -171,12 +230,14 @@
         .contact-section {
             text-align: center;
             padding: 100px 20px;
-            background: rgba(10, 10, 42, 0.5);
+            background: linear-gradient(135deg, rgba(0, 121, 107, 0.8) 0%, rgba(0, 105, 92, 0.8) 100%);
+            color: white;
+            position: relative;
         }
 
         .contact-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
+            background: #fff;
+            color: #00897b;
             padding: 20px 40px;
             border: none;
             border-radius: 30px;
@@ -184,11 +245,22 @@
             text-decoration: none;
             display: inline-block;
             margin-top: 30px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .contact-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Секции брендов */
+        .brand-section {
+            display: none;
+        }
+
+        .brand-section.active {
+            display: block;
         }
 
         /* Адаптивность */
@@ -201,6 +273,15 @@
                 grid-template-columns: 1fr;
                 padding: 50px 20px;
             }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -208,46 +289,121 @@
     <!-- Звездное небо -->
     <div class="stars" id="stars"></div>
 
+    <!-- Навигация -->
+    <nav class="navigation">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showBrand('all')">Все часы</button>
+            <button class="nav-btn" onclick="showBrand('seiko')">Seiko</button>
+            <button class="nav-btn" onclick="showBrand('gshock')">G-Shock</button>
+        </div>
+    </nav>
+
     <!-- Герой секция -->
-    <section class="parallax-section hero">
+    <section class="hero">
         <div>
             <h1>🕐 WatchCustom</h1>
-            <p>Часы с характером — создай свой стиль среди звезд</p>
+            <p>Эксклюзивные часы среди звезд</p>
         </div>
     </section>
 
-    <!-- Каталог часов -->
-    <section class="watches-grid">
-        <div class="watch-card">
-            <div class="watch-brand">Seiko</div>
-            <img src="images/photo_2025-03-30_21-25-59.jpg" alt="Seiko Custom Самурай" class="watch-image">
-            <h3 class="watch-name">Custom "Самурай"</h3>
-            <div class="watch-price">12 500₽</div>
-            <p class="watch-description">Кастомный циферблат, модифицированный безель, кожаный ремешок ручной работы</p>
-        </div>
+    <!-- Все часы -->
+    <section id="all" class="brand-section active">
+        <div class="watches-grid">
+            <!-- Seiko 1 -->
+            <div class="watch-card" data-brand="seiko">
+                <div class="watch-brand">Seiko</div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="images/photo_2025-03-30_21-25-59.jpg" alt="Seiko Самурай вид 1">
+                        <img src="images/seiko1_2.jpg" alt="Seiko Самурай вид 2">
+                        <img src="images/seiko1_3.jpg" alt="Seiko Самурай вид 3">
+                    </div>
+                    <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
+                    <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 2)"></div>
+                    </div>
+                </div>
+                <h3 class="watch-name">Custom "Самурай"</h3>
+                <div class="watch-price">12 500₽</div>
+                <p class="watch-description">Кастомный циферблат, модифицированный безель, кожаный ремешок ручной работы</p>
+            </div>
 
-        <div class="watch-card">
-            <div class="watch-brand">G-Shock</div>
-            <img src="images/gshock1.jpg" alt="G-Shock Urban Camo" class="watch-image">
-            <h3 class="watch-name">"Urban Camo"</h3>
-            <div class="watch-price">8 900₽</div>
-            <p class="watch-description">Эксклюзивный камуфляжный принт, защита от ударов, водонепроницаемость 200м</p>
-        </div>
+            <!-- G-Shock 1 -->
+            <div class="watch-card" data-brand="gshock">
+                <div class="watch-brand">G-Shock</div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="images/gshock1.jpg" alt="G-Shock Urban вид 1">
+                        <img src="images/gshock1_2.jpg" alt="G-Shock Urban вид 2">
+                    </div>
+                    <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
+                    <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                    </div>
+                </div>
+                <h3 class="watch-name">"Urban Camo"</h3>
+                <div class="watch-price">8 900₽</div>
+                <p class="watch-description">Эксклюзивный камуфляжный принт, защита от ударов, водонепроницаемость 200м</p>
+            </div>
 
-        <div class="watch-card">
-            <div class="watch-brand">Seiko</div>
-            <img src="images/seiko2.jpg" alt="Seiko Винтаж" class="watch-image">
-            <h3 class="watch-name">"Винтаж"</h3>
-            <div class="watch-price">15 600₽</div>
-            <p class="watch-description">Ретро дизайн, позолоченные стрелки, сапфировое стекло</p>
-        </div>
+            <!-- Seiko 2 -->
+            <div class="watch-card" data-brand="seiko">
+                <div class="watch-brand">Seiko</div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="images/seiko2.jpg" alt="Seiko Винтаж вид 1">
+                        <img src="images/seiko2_2.jpg" alt="Seiko Винтаж вид 2">
+                    </div>
+                    <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
+                    <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                    </div>
+                </div>
+                <h3 class="watch-name">"Винтаж"</h3>
+                <div class="watch-price">15 600₽</div>
+                <p class="watch-description">Ретро дизайн, позолоченные стрелки, сапфировое стекло</p>
+            </div>
 
-        <div class="watch-card">
-            <div class="watch-brand">G-Shock</div>
-            <img src="images/gshock2.jpg" alt="G-Shock Stealth" class="watch-image">
-            <h3 class="watch-name">"Stealth"</h3>
-            <div class="watch-price">7 500₽</div>
-            <p class="watch-description">Матовое черное покрытие, неоновая подсветка, спортивный стиль</p>
+            <!-- G-Shock 2 -->
+            <div class="watch-card" data-brand="gshock">
+                <div class="watch-brand">G-Shock</div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="images/gshock2.jpg" alt="G-Shock Stealth вид 1">
+                        <img src="images/gshock2_2.jpg" alt="G-Shock Stealth вид 2">
+                    </div>
+                    <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
+                    <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                    </div>
+                </div>
+                <h3 class="watch-name">"Stealth"</h3>
+                <div class="watch-price">7 500₽</div>
+                <p class="watch-description">Матовое черное покрытие, неоновая подсветка, спортивный стиль</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Только Seiko -->
+    <section id="seiko" class="brand-section">
+        <div class="watches-grid">
+            <!-- Seiko часы будут здесь -->
+        </div>
+    </section>
+
+    <!-- Только G-Shock -->
+    <section id="gshock" class="brand-section">
+        <div class="watches-grid">
+            <!-- G-Shock часы будут здесь -->
         </div>
     </section>
 
@@ -281,23 +437,78 @@
             }
         }
 
-        // Параллакс эффект
-        function initParallax() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.parallax-section');
-                
-                parallaxElements.forEach(element => {
-                    const speed = 0.5;
-                    element.style.backgroundPositionY = -(scrolled * speed) + 'px';
-                });
+        // Функции для слайдера
+        function initSliders() {
+            document.querySelectorAll('.slider').forEach(slider => {
+                slider.currentSlide = 0;
+                updateSlider(slider);
             });
+        }
+
+        function nextSlide(btn) {
+            const slider = btn.parentElement.querySelector('.slider');
+            const slides = slider.querySelectorAll('img');
+            slider.currentSlide = (slider.currentSlide + 1) % slides.length;
+            updateSlider(slider);
+        }
+
+        function prevSlide(btn) {
+            const slider = btn.parentElement.querySelector('.slider');
+            const slides = slider.querySelectorAll('img');
+            slider.currentSlide = (slider.currentSlide - 1 + slides.length) % slides.length;
+            updateSlider(slider);
+        }
+
+        function goToSlide(dot, index) {
+            const slider = dot.closest('.slider-container').querySelector('.slider');
+            slider.currentSlide = index;
+            updateSlider(slider);
+        }
+
+        function updateSlider(slider) {
+            const slides = slider.querySelectorAll('img');
+            const dots = slider.parentElement.querySelectorAll('.slider-dot');
+            
+            slider.style.transform = `translateX(-${slider.currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slider.currentSlide);
+            });
+        }
+
+        // Функции для фильтрации брендов
+        function showBrand(brand) {
+            // Обновляем кнопки навигации
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Показываем нужную секцию
+            document.querySelectorAll('.brand-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(brand).classList.add('active');
+
+            // Если выбраны отдельные бренды, копируем соответствующие карточки
+            if (brand === 'seiko' || brand === 'gshock') {
+                const targetSection = document.getElementById(brand);
+                const watchesGrid = targetSection.querySelector('.watches-grid');
+                watchesGrid.innerHTML = '';
+
+                document.querySelectorAll(`.watch-card[data-brand="${brand}"]`).forEach(card => {
+                    watchesGrid.appendChild(card.cloneNode(true));
+                });
+
+                // Реинициализируем слайдеры после копирования
+                setTimeout(initSliders, 100);
+            }
         }
 
         // Запуск при загрузке
         document.addEventListener('DOMContentLoaded', () => {
             createStars();
-            initParallax();
+            initSliders();
         });
     </script>
 </body>
