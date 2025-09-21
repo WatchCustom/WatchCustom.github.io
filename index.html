@@ -391,11 +391,11 @@
                     <div class="slider">
                         <img src="images/photo_2025-03-30_21-25-59.jpg" alt="Seiko Самурай вид 1">
                         <img src="images/IMG_20250713_141436.jpg" alt="Seiko Самурай вид 2">
-                        <img src="images/IMG_20250713_141610.jpg" alt="Seiko Самурай вид 3">
-                        <img src="images/IMG_20250713_141631.jpg" alt="Seiko Самурай вид 4">
-                        <img src="images/IMG_20250713_141619.jpg" alt="Seiko Самурай вид 5">
-                        <img src="images/IMG_20250713_141538.jpg" alt="Seiko Самурай вид 6">
-                        <img src="images/IMG_20250713_141548.jpg" alt="Seiko Самурай вид 7">
+                        <img src="images/IMG_20250713_141538.jpg" alt="Seiko Самурай вид 3">
+                        <img src="images/IMG_20250713_141548.jpg" alt="Seiko Самурай вид 4">
+                        <img src="images/IMG_20250713_141610.jpg" alt="Seiko Самурай вид 5">
+                        <img src="images/IMG_20250713_141619.jpg" alt="Seiko Самурай вид 6">
+                        <img src="images/IMG_20250713_141631.jpg" alt="Seiko Самурай вид 7">
                     </div>
                     <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
                     <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
@@ -419,14 +419,24 @@
                 <div class="watch-brand">G-Shock</div>
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="images/gshock1.jpg" alt="G-Shock Urban вид 1">
-                        <img src="images/gshock1_2.jpg" alt="G-Shock Urban вид 2">
+                        <img src="images/IMG_20250713_133041.jpg" alt="G-Shock Urban вид 1">
+                        <img src="images/IMG_20250713_133053.jpg" alt="G-Shock Urban вид 2">
+                        <img src="images/IMG_20250713_133029.jpg" alt="G-Shock Urban вид 3">
+                        <img src="images/IMG_20250713_133020.jpg" alt="G-Shock Urban вид 4">
+                        <img src="images/IMG_20250713_133011.jpg" alt="G-Shock Urban вид 5">
+                        <img src="images/IMG_20250713_133000.jpg" alt="G-Shock Urban вид 6">
+                        <img src="images/IMG_20250713_133105.jpg" alt="G-Shock Urban вид 7">
                     </div>
                     <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
                     <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
                     <div class="slider-nav">
                         <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
                         <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 2)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 3)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 4)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 5)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 6)"></div>
                     </div>
                 </div>
                 <h3 class="watch-name">"Urban Camo"</h3>
@@ -439,14 +449,24 @@
                 <div class="watch-brand">Seiko</div>
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="images/seiko2.jpg" alt="Seiko Винтаж вид 1">
-                        <img src="images/seiko2_2.jpg" alt="Seiko Винтаж вид 2">
+                        <img src="images/IMG_20250713_133041.jpg" alt="Seiko Винтаж вид 1">
+                        <img src="images/IMG_20250713_133053.jpg" alt="Seiko Винтаж вид 2">
+                        <img src="images/IMG_20250713_133029.jpg" alt="Seiko Винтаж вид 3">
+                        <img src="images/IMG_20250713_133020.jpg" alt="Seiko Винтаж вид 4">
+                        <img src="images/IMG_20250713_133011.jpg" alt="Seiko Винтаж вид 5">
+                        <img src="images/IMG_20250713_133000.jpg" alt="Seiko Винтаж вид 6">
+                        <img src="images/IMG_20250713_133105.jpg" alt="Seiko Винтаж вид 7">
                     </div>
                     <button class="slider-arrow prev" onclick="prevSlide(this)">❮</button>
                     <button class="slider-arrow next" onclick="nextSlide(this)">❯</button>
                     <div class="slider-nav">
                         <div class="slider-dot active" onclick="goToSlide(this, 0)"></div>
                         <div class="slider-dot" onclick="goToSlide(this, 1)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 2)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 3)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 4)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 5)"></div>
+                        <div class="slider-dot" onclick="goToSlide(this, 6)"></div>
                     </div>
                 </div>
                 <h3 class="watch-name">"Винтаж"</h3>
@@ -572,28 +592,4 @@
             document.querySelectorAll('.brand-section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(brand).classList.add('active');
-
-            // Если выбраны отдельные бренды, копируем соответствующие карточки
-            if (brand === 'seiko' || brand === 'gshock') {
-                const targetSection = document.getElementById(brand);
-                const watchesGrid = targetSection.querySelector('.watches-grid');
-                watchesGrid.innerHTML = '';
-
-                document.querySelectorAll(`.watch-card[data-brand="${brand}"]`).forEach(card => {
-                    watchesGrid.appendChild(card.cloneNode(true));
-                });
-
-                // Реинициализируем слайдеры после копирования
-                setTimeout(initSliders, 100);
-            }
-        }
-
-        // Запуск при загрузке
-        document.addEventListener('DOMContentLoaded', () => {
-            createStars();
-            initSliders();
-        });
-    </script>
-</body>
-</html>
+            document.getElementById(brand).class
