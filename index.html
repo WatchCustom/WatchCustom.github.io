@@ -15,7 +15,7 @@
             font-family: 'Arial', sans-serif;
             color: white;
             overflow-x: hidden;
-            background: #000;
+            background: #0a0a0a;
         }
 
         /* Звездное небо */
@@ -26,7 +26,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #001a33, #000, #001a33);
+            background: linear-gradient(45deg, #0a0a0a, #000, #0a0a0a);
         }
 
         .star {
@@ -42,16 +42,16 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Навигация */
+        /* Навигация - матовый черный с неоном */
         .navigation {
-            background: rgba(0, 200, 180, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             padding: 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid #00ffff;
-            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.1);
         }
 
         .nav-buttons {
@@ -62,51 +62,57 @@
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid #00ffff;
-            color: white;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            color: #00ffff;
             padding: 15px 30px;
-            border-radius: 30px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: bold;
+            font-weight: 600;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
         }
 
         .nav-btn:hover,
         .nav-btn.active {
-            background: #00ffff;
-            color: #00695c;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+            background: rgba(0, 255, 255, 0.15);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
         }
 
-        /* Герой секция */
+        /* Герой секция - матовый градиент */
         .hero {
             text-align: center;
             padding: 150px 20px 100px;
-            background: linear-gradient(135deg, rgba(0, 180, 160, 0.9) 0%, rgba(0, 150, 130, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(20, 20, 20, 0.9) 100%);
             color: white;
             position: relative;
-            border-bottom: 3px solid #00ffff;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
         }
 
         .hero-title {
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 255, 0.5);
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00ffff, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
             font-size: 1.5rem;
-            opacity: 0.95;
+            opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
             font-weight: 300;
             letter-spacing: 1px;
+            color: #b0b0b0;
         }
 
         .glowing-dot {
@@ -136,21 +142,24 @@
             margin: 0 auto;
         }
 
+        /* Карточки часов - матовый стеклянный эффект */
         .watch-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 255, 255, 0.95));
+            background: rgba(20, 20, 20, 0.7);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
             transition: all 0.4s ease;
-            box-shadow: 0 15px 35px rgba(0, 200, 180, 0.25);
-            border: 3px solid #00bcd4;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(15px);
         }
 
         .watch-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 200, 180, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.4);
         }
 
         .watch-card::before {
@@ -160,7 +169,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            background: linear-gradient(45deg, #00bcd4, #00ffff, #00bcd4);
+            background: linear-gradient(45deg, rgba(0, 188, 212, 0.1), rgba(0, 255, 255, 0.05), rgba(0, 188, 212, 0.1));
             z-index: -1;
             border-radius: 25px;
             opacity: 0;
@@ -168,7 +177,7 @@
         }
 
         .watch-card:hover::before {
-            opacity: 0.3;
+            opacity: 1;
         }
 
         /* Слайдер фото */
@@ -179,8 +188,9 @@
             margin-bottom: 20px;
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #00bcd4;
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            background: rgba(10, 10, 10, 0.8);
         }
 
         .slider {
@@ -209,10 +219,10 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.5);
         }
 
         .slider-dot.active {
@@ -224,22 +234,23 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 188, 212, 0.9);
+            background: rgba(20, 20, 20, 0.8);
             border: none;
             width: 40px;
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 20px;
-            color: white;
+            color: #00ffff;
             transition: all 0.3s ease;
-            border: 2px solid #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
         }
 
         .slider-arrow:hover {
-            background: #00ffff;
-            color: #00695c;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
 
         .slider-arrow.prev {
@@ -251,70 +262,74 @@
         }
 
         .watch-brand {
-            background: linear-gradient(135deg, #00bcd4, #00897b);
-            color: white;
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.2), rgba(0, 255, 255, 0.1));
+            color: #00ffff;
             padding: 12px 30px;
             border-radius: 25px;
             font-size: 1.1rem;
             display: inline-block;
             margin-bottom: 20px;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .watch-name {
             font-size: 1.7rem;
             margin-bottom: 15px;
             font-weight: bold;
-            color: #00897b;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
         }
 
         .watch-price {
             font-size: 2.2rem;
-            color: #e91e63;
+            color: #ff4081;
             font-weight: bold;
             margin: 20px 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
         }
 
         .watch-description {
-            color: #555;
+            color: #b0b0b0;
             line-height: 1.6;
             margin-bottom: 20px;
             font-size: 0.95rem;
         }
 
-        /* Контакты */
+        /* Контакты - матовый черный */
         .contact-section {
             text-align: center;
             padding: 100px 20px;
-            background: linear-gradient(135deg, rgba(0, 150, 130, 0.95) 0%, rgba(0, 120, 110, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(20, 20, 20, 0.9) 100%);
             color: white;
             position: relative;
-            border-top: 3px solid #00ffff;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
         }
 
         .contact-button {
-            background: linear-gradient(135deg, #00ffff, #00bcd4);
-            color: #00695c;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 188, 212, 0.15));
+            color: #00ffff;
             padding: 20px 40px;
-            border: none;
-            border-radius: 30px;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            border-radius: 12px;
             font-size: 1.2rem;
             text-decoration: none;
             display: inline-block;
             margin-top: 30px;
             transition: all 0.3s ease;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .contact-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3), 0 0 25px rgba(0, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 188, 212, 0.25));
         }
 
         /* Секции брендов */
@@ -568,7 +583,7 @@
                 <div class="slider-container">
                     <div class="slider">
                         <img src="images/IMG_20250713_151326.jpg" alt="Seiko модель 5 вид 1">
-                        <img src="images/IMG_20250713_151358.jpg" alt="Seiko модель 5 вид 2">
+                        <img src="images/IMG_20250713_151398.jpg" alt="Seiko модель 5 вид 2">
                         <img src="images/IMG_20250713_151342.jpg" alt="Seiko модель 5 вид 3">
                         <img src="images/IMG_20250713_151427.jpg" alt="Seiko модель 5 вид 4">
                         <img src="images/IMG_20250713_151411.jpg" alt="Seiko модель 5 вид 5">
